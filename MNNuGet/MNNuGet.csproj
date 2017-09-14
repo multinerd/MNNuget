@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DF6C5EA1-8586-4903-AA73-4583EE7B2A86}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Multinerd</RootNamespace>
+    <AssemblyName>MNNuGet</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.Core.3.3.15\lib\net45\AWSSDK.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="AWSSDK.S3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.S3.3.3.8\lib\net45\AWSSDK.S3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.Windows.Controls">
+      <HintPath>..\lib\RCWPF\2017.2.614.45.NoXaml\Telerik.Windows.Controls.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Data">
+      <HintPath>..\lib\RCWPF\2017.2.614.45.NoXaml\Telerik.Windows.Controls.Data.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input">
+      <HintPath>..\lib\RCWPF\2017.2.614.45.NoXaml\Telerik.Windows.Controls.Input.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation">
+      <HintPath>..\lib\RCWPF\2017.2.614.45.NoXaml\Telerik.Windows.Controls.Navigation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data">
+      <HintPath>..\lib\RCWPF\2017.2.614.45.NoXaml\Telerik.Windows.Data.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Extensions\ApplicationExtensions.cs" />
+    <Compile Include="Extensions\JetBrains.Annotations.cs" />
+    <Compile Include="Extensions\TypeSwitch.cs" />
+    <Compile Include="Properties\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Application\Behaviors\WebBrowserUtility.cs" />
+    <Compile Include="Windows\Application\CrashReporter.cs" />
+    <Compile Include="Windows\Application\CrashReporterDotNET\CaptureScreenshot.cs" />
+    <Compile Include="Windows\Application\CrashReporterDotNET\CrashReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Application\CrashReporterDotNET\CrashReport.Designer.cs">
+      <DependentUpon>CrashReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Application\CrashReporterDotNET\HelperMethods.cs" />
+    <Compile Include="Windows\Application\CrashReporterDotNET\ProgressDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Application\CrashReporterDotNET\ProgressDialog.Designer.cs">
+      <DependentUpon>ProgressDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Application\CrashReporterDotNET\ReportCrash.cs" />
+    <Compile Include="Windows\Application\Extensions\Contains.cs" />
+    <Compile Include="Windows\Application\Extensions\EnumerateDirectory.cs" />
+    <Compile Include="Windows\Application\Extensions\IsInDesignMode.cs" />
+    <Compile Include="Windows\Application\InstanceChecker.cs" />
+    <Compile Include="Windows\Console\ConsoleHelpers.cs" />
+    <Compile Include="Windows\Helpers\BoolChecks.cs" />
+    <Compile Include="Windows\MVVM\EditableModelBase.cs" />
+    <Compile Include="Telerik\Helpers\RadProgressBarModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Amazon\AWS\AWSS3Wrapper.cs" />
+    <Compile Include="Extensions\RandomEnum.cs" />
+    <Compile Include="Windows\Ignore.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Telerik.Windows.Controls.Data.dll - Shortcut.lnk" />
+    <None Include="Telerik.Windows.Controls.Input.dll - Shortcut.lnk" />
+    <None Include="Telerik.Windows.Controls.Navigation.dll - Shortcut.lnk" />
+    <None Include="Telerik.Windows.Data.dll - Shortcut.lnk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\AWSSDK.S3.3.3.8\analyzers\dotnet\cs\AWSSDK.S3.CodeAnalysis.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Windows\Application\CrashReporterDotNET\Resources\ajax-loader.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Windows\Application\CrashReporterDotNET\Resources\email_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Windows\Application\CrashReporterDotNET\Resources\save_as.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Windows\Application\CrashReporterDotNET\Resources\stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Windows\Application\CrashReporterDotNET\Resources\warning_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\CrashReport.da.resx">
+      <DependentUpon>CrashReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\CrashReport.de.resx">
+      <DependentUpon>CrashReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\CrashReport.es.resx">
+      <DependentUpon>CrashReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\CrashReport.fr.resx">
+      <DependentUpon>CrashReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\CrashReport.it.resx">
+      <DependentUpon>CrashReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\CrashReport.nl.resx">
+      <DependentUpon>CrashReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\CrashReport.pl.resx">
+      <DependentUpon>CrashReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\CrashReport.resx">
+      <DependentUpon>CrashReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\CrashReport.ru.resx">
+      <DependentUpon>CrashReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\CrashReport.sv.resx">
+      <DependentUpon>CrashReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\CrashReport.tr.resx">
+      <DependentUpon>CrashReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\ProgressDialog.da.resx">
+      <DependentUpon>ProgressDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\ProgressDialog.de.resx">
+      <DependentUpon>ProgressDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\ProgressDialog.es.resx">
+      <DependentUpon>ProgressDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\ProgressDialog.fr.resx">
+      <DependentUpon>ProgressDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\ProgressDialog.it.resx">
+      <DependentUpon>ProgressDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\ProgressDialog.nl.resx">
+      <DependentUpon>ProgressDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\ProgressDialog.pl.resx">
+      <DependentUpon>ProgressDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\ProgressDialog.resx">
+      <DependentUpon>ProgressDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\ProgressDialog.ru.resx">
+      <DependentUpon>ProgressDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\ProgressDialog.sv.resx">
+      <DependentUpon>ProgressDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\ProgressDialog.tr.resx">
+      <DependentUpon>ProgressDialog.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ajax-loader.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_as.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ajax-loader1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email_go1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_as1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stop1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning_641.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utilities\NewFolder1\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

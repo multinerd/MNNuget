@@ -1,20 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
+using Multinerd.Extensions;
 
 namespace Multinerd.Windows.Application
 {
-    public static class SingletonApplication
+    [UsedImplicitly]
+    public static class InstanceChecker
     {
-        private static Mutex _instanceMutex = null;
-
-        private static Process _instanceProcess = null;
+        private static Mutex _instanceMutex;
 
         [DllImport("user32.dll", SetLastError = true)]
         static extern bool ShowWindowAsync(HandleRef windowHandle, int nCmdShow);
@@ -23,17 +19,28 @@ namespace Multinerd.Windows.Application
         static extern bool SetForegroundWindow(IntPtr windowHandle);
 
 
+        /// <summary>
+        /// Use on OnStartup override
+        /// protected override void OnStartup(StartupEventArgs e)
+        /// {
+        ///     base.OnStartup(e);
+        ///     if (InstanceChecker.IsAppRunning(Process.GetCurrentProcess(), true))
+        ///         Current.Shutdown(0);
+        /// 
+        ///     new MainWindow().Show();
+        /// }
+        /// </summary>
+        [UsedImplicitly]
         public static bool IsAppRunning(Process app, bool bringToFront)
         {
-            _instanceProcess = app;
-            _instanceMutex = new Mutex(true, $@"Global\{_instanceProcess.ProcessName}", out var createdNew);
+            _instanceMutex = new Mutex(true, $@"Global\{app.ProcessName}", out var createdNew);
             if (!createdNew)
             {
-                MessageBox.Show($"{_instanceProcess.ProcessName} is already running.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"{app.ProcessName} is already running.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 _instanceMutex = null;
                 if (bringToFront)
                 {
-                    Process[] objProcesses = Process.GetProcessesByName(_instanceProcess.ProcessName);
+                    Process[] objProcesses = Process.GetProcessesByName(app.ProcessName);
                     if (objProcesses.Length > 0)
                     {
                         var hWnd = objProcesses[0].MainWindowHandle;
@@ -47,7 +54,15 @@ namespace Multinerd.Windows.Application
         }
 
 
-
+        /// <summary>
+        /// Use on OnExit override
+        /// protected override void OnExit(ExitEventArgs e)
+        /// {
+        ///     InstanceChecker.Cleanup();
+        ///     base.OnExit(e);
+        /// } 
+        /// </summary>
+        [UsedImplicitly]
         public static void Cleanup()
         {
             _instanceMutex?.ReleaseMutex();

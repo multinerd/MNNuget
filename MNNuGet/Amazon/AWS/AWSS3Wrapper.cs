@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Amazon;
 using Amazon.S3;
 using Amazon.S3.Model;
-using WBRealEstate.Modules.Leasing.Models;
 
-namespace WBRealEstate.Resources
+namespace Multinerd.Amazon.AWS
 {
-    public class S3Helper
+    public class AWSS3Wrapper
     {
         public static readonly IAmazonS3 S3Client = new AmazonS3Client(AccessKey, SecretKey, RegionEndpoint.USEast1);
         public static string AccessKey => "your_shit_here";
@@ -20,13 +16,16 @@ namespace WBRealEstate.Resources
         public static string BucketName => "bucket_name";
         public static string AWSPrefix => "https://s3.amazonaws.com";
 
+
+
+
         private IEnumerable<string> PopulateFoldersForKeyPath(string path, string diskLoc)
         {
             var fileNames = new List<string>();
 
             var listRequest = new ListObjectsRequest
             {
-                BucketName = S3Helper.BucketName,
+                BucketName = AWSS3Wrapper.BucketName,
                 Prefix = path,
                 Delimiter = "/"
             };
