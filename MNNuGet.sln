@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MNNuGet", "MNNuGet\MNNuGet.csproj", "{DF6C5EA1-8586-4903-AA73-4583EE7B2A86}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrashReporter", "CrashReporter\CrashReporter.csproj", "{3C1E4901-BC00-486A-A2ED-908966A21EE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,16 +21,11 @@ Global
 		{DF6C5EA1-8586-4903-AA73-4583EE7B2A86}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DF6C5EA1-8586-4903-AA73-4583EE7B2A86}.Release|x86.ActiveCfg = Release|Any CPU
 		{DF6C5EA1-8586-4903-AA73-4583EE7B2A86}.Release|x86.Build.0 = Release|Any CPU
-		{3C1E4901-BC00-486A-A2ED-908966A21EE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3C1E4901-BC00-486A-A2ED-908966A21EE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3C1E4901-BC00-486A-A2ED-908966A21EE5}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{3C1E4901-BC00-486A-A2ED-908966A21EE5}.Debug|x86.Build.0 = Debug|Any CPU
-		{3C1E4901-BC00-486A-A2ED-908966A21EE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3C1E4901-BC00-486A-A2ED-908966A21EE5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3C1E4901-BC00-486A-A2ED-908966A21EE5}.Release|x86.ActiveCfg = Release|Any CPU
-		{3C1E4901-BC00-486A-A2ED-908966A21EE5}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {49487E28-ADE4-443C-9B40-66D454037006}
 	EndGlobalSection
 EndGlobal

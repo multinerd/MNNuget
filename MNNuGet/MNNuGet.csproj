@@ -44,6 +44,7 @@
       <HintPath>..\packages\AWSSDK.S3.3.3.8\lib\net45\AWSSDK.S3.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -86,38 +87,20 @@
     <Compile Include="Extensions\ApplicationExtensions.cs" />
     <Compile Include="Extensions\JetBrains.Annotations.cs" />
     <Compile Include="Extensions\TypeSwitch.cs" />
-    <Compile Include="Properties\Resource.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resource.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Application\Behaviors\WebBrowserUtility.cs" />
-    <Compile Include="Windows\Application\CrashReporter.cs" />
-    <Compile Include="Windows\Application\CrashReporterDotNET\CaptureScreenshot.cs" />
-    <Compile Include="Windows\Application\CrashReporterDotNET\CrashReport.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Windows\Application\CrashReporterDotNET\CrashReport.Designer.cs">
-      <DependentUpon>CrashReport.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\Application\CrashReporterDotNET\HelperMethods.cs" />
-    <Compile Include="Windows\Application\CrashReporterDotNET\ProgressDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Windows\Application\CrashReporterDotNET\ProgressDialog.Designer.cs">
-      <DependentUpon>ProgressDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\Application\CrashReporterDotNET\ReportCrash.cs" />
     <Compile Include="Windows\Application\Extensions\Contains.cs" />
     <Compile Include="Windows\Application\Extensions\EnumerateDirectory.cs" />
     <Compile Include="Windows\Application\Extensions\IsInDesignMode.cs" />
-    <Compile Include="Windows\Application\InstanceChecker.cs" />
-    <Compile Include="Windows\Console\ConsoleHelpers.cs" />
     <Compile Include="Windows\Helpers\BoolChecks.cs" />
     <Compile Include="Windows\MVVM\EditableModelBase.cs" />
     <Compile Include="Telerik\Helpers\RadProgressBarModel.cs" />
@@ -129,6 +112,10 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Telerik.Windows.Controls.Data.dll - Shortcut.lnk" />
     <None Include="Telerik.Windows.Controls.Input.dll - Shortcut.lnk" />
     <None Include="Telerik.Windows.Controls.Navigation.dll - Shortcut.lnk" />
@@ -138,128 +125,13 @@
     <Analyzer Include="..\packages\AWSSDK.S3.3.3.8\analyzers\dotnet\cs\AWSSDK.S3.CodeAnalysis.dll" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Windows\Application\CrashReporterDotNET\Resources\ajax-loader.gif" />
+    <Folder Include="Utilities\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Windows\Application\CrashReporterDotNET\Resources\email_go.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Windows\Application\CrashReporterDotNET\Resources\save_as.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Windows\Application\CrashReporterDotNET\Resources\stop.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Windows\Application\CrashReporterDotNET\Resources\warning_64.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Properties\Resource.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\CrashReport.da.resx">
-      <DependentUpon>CrashReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\CrashReport.de.resx">
-      <DependentUpon>CrashReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\CrashReport.es.resx">
-      <DependentUpon>CrashReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\CrashReport.fr.resx">
-      <DependentUpon>CrashReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\CrashReport.it.resx">
-      <DependentUpon>CrashReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\CrashReport.nl.resx">
-      <DependentUpon>CrashReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\CrashReport.pl.resx">
-      <DependentUpon>CrashReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\CrashReport.resx">
-      <DependentUpon>CrashReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\CrashReport.ru.resx">
-      <DependentUpon>CrashReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\CrashReport.sv.resx">
-      <DependentUpon>CrashReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\CrashReport.tr.resx">
-      <DependentUpon>CrashReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\ProgressDialog.da.resx">
-      <DependentUpon>ProgressDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\ProgressDialog.de.resx">
-      <DependentUpon>ProgressDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\ProgressDialog.es.resx">
-      <DependentUpon>ProgressDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\ProgressDialog.fr.resx">
-      <DependentUpon>ProgressDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\ProgressDialog.it.resx">
-      <DependentUpon>ProgressDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\ProgressDialog.nl.resx">
-      <DependentUpon>ProgressDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\ProgressDialog.pl.resx">
-      <DependentUpon>ProgressDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\ProgressDialog.resx">
-      <DependentUpon>ProgressDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\ProgressDialog.ru.resx">
-      <DependentUpon>ProgressDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\ProgressDialog.sv.resx">
-      <DependentUpon>ProgressDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windows\Application\CrashReporterDotNET\ProgressDialog.tr.resx">
-      <DependentUpon>ProgressDialog.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ajax-loader.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\email_go.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\save_as.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\stop.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\warning_64.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ajax-loader1.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\email_go1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\save_as1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\stop1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\warning_641.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Utilities\NewFolder1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
