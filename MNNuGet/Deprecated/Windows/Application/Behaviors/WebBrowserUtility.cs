@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Multinerd.Extensions;
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using Multinerd.Extensions;
 
 namespace Multinerd.Windows.Application.Behaviors
 {
+    [Obsolete("This class has been deprecated and moved to 'Project Maya'.\n Please reference that project instead.")]
     [UsedImplicitly]
     public static class WebBrowserUtility
     {

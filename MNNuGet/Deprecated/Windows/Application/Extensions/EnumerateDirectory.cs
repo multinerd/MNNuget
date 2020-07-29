@@ -9,7 +9,7 @@ namespace Multinerd.Windows.Application.Extensions
 {
     public static partial class Extensions
     {
-
+        [Obsolete("This method has been deprecated and moved to 'Project Maya'.\n Please reference that project instead.")]
         static void DirSearch(string dir)
         {
             try
@@ -27,6 +27,7 @@ namespace Multinerd.Windows.Application.Extensions
             }
         }
 
+        [Obsolete("This method has been deprecated and moved to 'Project Maya'.\n Please reference that project instead.")]
         static IEnumerable<string> GetFiles(string path)
         {
             Queue<string> queue = new Queue<string>();

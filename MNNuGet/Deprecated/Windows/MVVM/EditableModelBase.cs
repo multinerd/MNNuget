@@ -5,6 +5,7 @@ using Telerik.Windows.Controls;
 // https://web.archive.org/web/20160202215105/http://indepthdev.azurewebsites.net:80/2010/10/reusable-editablemodelbase-using-ieditableobject/
 namespace Multinerd.Windows.MVVM
 {
+    [Obsolete("This class has been deprecated and moved to 'Project Maya'.\n Please reference that project instead.")]
     public abstract class EditableModelBase<T> : ViewModelBase, IEditableObject
     {
         private T Cache { get; set; }

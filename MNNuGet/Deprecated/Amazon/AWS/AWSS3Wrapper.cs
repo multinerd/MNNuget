@@ -1,13 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using Amazon;
+using Amazon.S3;
+using Amazon.S3.Model;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
-using Amazon;
-using Amazon.S3;
-using Amazon.S3.Model;
 
 namespace Multinerd.Amazon.AWS
 {
+    [Obsolete("This class has been deprecated and moved to 'Project Maya'.\n Please reference that project instead.")]
     public class AWSS3Wrapper
     {
         public static readonly IAmazonS3 S3Client = new AmazonS3Client(AccessKey, SecretKey, RegionEndpoint.USEast1);

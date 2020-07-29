@@ -84,9 +84,9 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions\ApplicationExtensions.cs" />
+    <Compile Include="Deprecated\Extensions\ApplicationExtensions.cs" />
     <Compile Include="Extensions\JetBrains.Annotations.cs" />
-    <Compile Include="Extensions\TypeSwitch.cs" />
+    <Compile Include="Deprecated\Extensions\TypeSwitch.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -97,17 +97,17 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Application\Behaviors\WebBrowserUtility.cs" />
-    <Compile Include="Windows\Application\Extensions\Contains.cs" />
-    <Compile Include="Windows\Application\Extensions\EnumerateDirectory.cs" />
-    <Compile Include="Windows\Application\Extensions\IsInDesignMode.cs" />
-    <Compile Include="Windows\Helpers\BoolChecks.cs" />
-    <Compile Include="Windows\MVVM\EditableModelBase.cs" />
-    <Compile Include="Telerik\Helpers\RadProgressBarModel.cs" />
+    <Compile Include="Deprecated\Windows\Application\Behaviors\WebBrowserUtility.cs" />
+    <Compile Include="Deprecated\Windows\Application\Extensions\Contains.cs" />
+    <Compile Include="Deprecated\Windows\Application\Extensions\EnumerateDirectory.cs" />
+    <Compile Include="Deprecated\Windows\Application\Extensions\IsInDesignMode.cs" />
+    <Compile Include="Deprecated\Windows\Helpers\BoolChecks.cs" />
+    <Compile Include="Deprecated\Windows\MVVM\EditableModelBase.cs" />
+    <Compile Include="Deprecated\Telerik\Helpers\RadProgressBarModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Amazon\AWS\AWSS3Wrapper.cs" />
-    <Compile Include="Extensions\RandomEnum.cs" />
-    <Compile Include="Windows\Ignore.cs" />
+    <Compile Include="Deprecated\Amazon\AWS\AWSS3Wrapper.cs" />
+    <Compile Include="Deprecated\Extensions\RandomEnum.cs" />
+    <Compile Include="Deprecated\Windows\Ignore.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -124,9 +124,7 @@
   <ItemGroup>
     <Analyzer Include="..\packages\AWSSDK.S3.3.3.8\analyzers\dotnet\cs\AWSSDK.S3.CodeAnalysis.dll" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Utilities\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

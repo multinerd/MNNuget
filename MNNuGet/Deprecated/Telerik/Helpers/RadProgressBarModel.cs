@@ -6,6 +6,7 @@ using Telerik.Windows.Controls;
 // ReSharper disable All
 namespace Multinerd.Telerik.Helpers
 {
+    [Obsolete("This class has been deprecated and moved to 'Project Maya'.\n Please reference that project instead.")]
     public class RadProgressBarModel : ViewModelBase
     {
         public string Message

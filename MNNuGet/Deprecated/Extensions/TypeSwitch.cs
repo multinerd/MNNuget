@@ -22,6 +22,7 @@ namespace Multinerd.Extensions
          * return name;
      * }
      */
+    [Obsolete("This class has been deprecated and moved to 'Project Maya'.\n Please reference that project instead.")]
     public static class TypeSwitch
     {
         public static Switch<TSource> On<TSource>(TSource value)
